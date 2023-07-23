@@ -25,6 +25,7 @@ function createHtml(section, { types, name, id}, spriteLink) {
 
     const image = document.createElement('img');
     image.src = `${spriteLink}${id}.png`
+    image.className = 'image-pokemons'
     const menuType = document.createElement('div');
     menuType.className = 'menu-type'
     types.map((type) => {

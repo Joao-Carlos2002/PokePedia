@@ -8,7 +8,7 @@
 }
 
 .fire {
-  background-color: #FE6035;
+  background-color: #fe6035;
 }
 
 .water {
@@ -91,10 +91,11 @@ header {
   position: sticky;
 }
 
-a {
+.home {
   text-decoration: none;
+  position: sticky;
   position: absolute;
-  top: 1rem;
+  top: 0rem;
   left: 0.3rem;
   color: #ccc;
   background-color: #ab1010;
@@ -105,7 +106,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: sticky;
 }
 
 header h1 {
@@ -124,7 +124,7 @@ header h1 {
   width: 45%;
   height: 120px;
   border-radius: 10px;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   z-index: -1;
 }
 
@@ -133,7 +133,7 @@ header h1 {
   text-transform: capitalize;
 }
 
-img {
+.image-pokemons {
   top: 30%;
   width: 4rem;
   position: absolute;
