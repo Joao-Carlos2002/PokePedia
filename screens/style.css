@@ -88,24 +88,27 @@ header {
   width: 100vw;
   height: 10vh;
   display: flex;
-  position: sticky;
+  position: absolute;
 }
 
 .home {
   text-decoration: none;
   position: sticky;
-  position: absolute;
-  top: 0rem;
+  top: 2vh;
   left: 0.3rem;
-  color: #ccc;
-  background-color: #ab1010;
-  width: 4rem;
-  height: 1.5rem;
-  border-radius: 10px;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #000;
+  border-radius: 50px;
   text-align: center;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+.home i {
+  font-size: 1.5rem;
+  color: #000;
 }
 
 header h1 {
@@ -116,7 +119,7 @@ header h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 3vh;
+  margin-top: 10vh;
 }
 
 .box-pokemons {
