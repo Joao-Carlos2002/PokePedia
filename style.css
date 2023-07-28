@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #ededed;
+  background-color: #ccc;
 }
 
 header {
@@ -18,6 +18,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
 }
 
 #menu {
@@ -27,7 +28,7 @@ header {
   justify-content: space-around;
 }
 
-button {
+.html-redirect {
   text-decoration: none;
   border: 0;
   border-radius: 10%;
@@ -45,7 +46,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.html-redirect:hover {
   background-color: #e11414;
   opacity: 1;
 }
@@ -57,7 +58,7 @@ button:hover {
   border: 0;
 }
 
-p {
+.titles {
   font-size: 1.2rem;
   font-weight: 400;
 }
