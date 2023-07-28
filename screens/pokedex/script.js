@@ -42,4 +42,9 @@ async function createHtml(section, { types, name, id }, spriteLink) {
     boxPokemons.appendChild(image)
     boxPokemons.appendChild(menuType)
     section.append(boxPokemons)
+
+    boxPokemons.addEventListener('click', (event) => {
+        window.location.href = '../details/details.html'
+    })
+
 }
