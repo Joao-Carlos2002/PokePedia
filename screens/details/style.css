@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.fire {
+  background-color: #fe6035;
+}
+
+.water {
+  background-color: #5ea8dc;
+}
+
+.grass {
+  background-color: #5dbd65;
+}
+
+.electric {
+  background-color: #f4d442;
+}
+
+.fighting {
+  background-color: #ce406a;
+}
+
+.ice {
+  background-color: #76cfc2;
+}
+
+.psychic {
+  background-color: #f86e73;
+}
+
+.poison {
+  background-color: #a566c7;
+}
+
+.normal {
+  background-color: #f1f1f1;
+}
+
+.bug {
+  background-color: #a8c732;
+}
+
+.dark {
+  background-color: #6d7482;
+}
+
+.dragon {
+  background-color: #0969c1;
+}
+
+.fairy {
+  background-color: #ec8ce3;
+}
+
+.flying {
+  background-color: #92abdf;
+}
+
+.ghost {
+  background-color: #7772d3;
+}
+
+.ground {
+  background-color: #d97847;
+}
+
+.rock {
+  background-color: #c8b88b;
+}
+
+.steel {
+  background-color: #53879c;
+}
+
+body {
+  background-color: #ccc;
+}
+
+header {
+  background-color: #df1c1d;
+  width: 100vw;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+}
+
+.home {
+  text-decoration: none;
+  position: absolute;
+  top: 1.4%;
+  left: 0.3rem;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #000;
+  border-radius: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home i {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+header h1 {
+  margin: auto;
+}
+
+.pokemon-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3vh;
+  height: 92vh;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 2.8rem;
+  margin-top: 2vh;
+  border-radius: 10px;
+}
+
+.pokemon-name {
+  position: absolute;
+  top: 1vh;
+}
+
+.pokemon-image {
+  margin-top: 3vh;
+  width: 100px;
+}
+
+.health-container {
+  display: flex;
+  justify-content: space-between;
+  width: 58vw;
+  margin-top: 2vh;
+}
+
+.health-container p {
+  font-size: 1.2rem;
+}
+
+.health-container p:nth-child(1) {
+  color: #ea1515;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  width: 92vw;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.attack-container,
+.status-container {
+  background-color: #ebebeb;
+  border-radius: 10px;
+  padding: 0.8rem;
+}
+
+.status-container h3,
+.attack-container h3 {
+  margin-bottom: 1.5vh;
+}
+
+.attacks p,
+.status p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.9;
+}
