@@ -86,15 +86,17 @@ body {
 header {
   background-color: #df1c1d;
   width: 100vw;
-  height: 10vh;
+  height: 8vh;
   display: flex;
-  position: absolute;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
 }
 
 .home {
   text-decoration: none;
-  position: sticky;
-  top: 2vh;
+  position: absolute;
+  top: 1.5vh;
   left: 0.3rem;
   width: 2rem;
   height: 2rem;
@@ -119,7 +121,9 @@ header h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 10vh;
+  margin-top: 5vh;
+  max-height: 10vh;
+  scroll-behavior: smooth;
 }
 
 .box-pokemons {
