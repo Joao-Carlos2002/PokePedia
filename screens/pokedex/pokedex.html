@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokepédia - Pokedex</title>
+    <!-- Link css -->
     <link rel="stylesheet" href="./style.css" />
-    <script src="../api.js" type="module" defer></script>
+    <!-- link Js -->
     <script src="./script.js" defer></script>
+    <!-- Link API -->
+    <script src="../../api.js" type="module" defer></script>
+    <!-- Link icon -->
     <script
       src="https://kit.fontawesome.com/79606a736c.js"
       crossorigin="anonymous"
@@ -16,10 +20,10 @@
   <body>
     <header>
       <h1>Pokepédia</h1>
+      <a class="home" href="../../index.html">
+        <i class="fa-solid fa-chevron-left"></i>
+      </a>
     </header>
-    <a class="home" href="../../index.html">
-      <i class="fa-solid fa-chevron-left"></i>
-    </a>
     <section id="menu-pokemons"></section>
   </body>
 </html>
