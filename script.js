@@ -3,8 +3,7 @@ document.addEventListener('resultApi', event => {
     result.map((gen) => {
         const button = document.createElement('button');
         button.className = 'html-redirect'
-        button.href = './screens/pokedex.html';
-        
+
         const paragraph = document.createElement('p');
         paragraph.id = gen.url;
         paragraph.className = 'titles'
@@ -19,9 +18,10 @@ document.addEventListener('resultApi', event => {
     const paragraph = document.getElementsByClassName('titles');
     const paragraphArray = Array.from(paragraph)
 
+
     paragraphArray.forEach(element => {
         if (element.innerText == 'generation-i') {
-            element.innerText = 'Primeria Geração'
+            element.innerText = 'Primeira Geração'
         } if (element.innerText == 'generation-ii') {
             element.innerText = 'Segunda Geração'
         } if (element.innerText == 'generation-iii') {
@@ -43,8 +43,8 @@ document.addEventListener('resultApi', event => {
 
     paragraphArray.forEach(element => {
         element.addEventListener('click', (event) => {
+            window.location.href = './screens/pokedex/pokedex.html'
             localStorage.setItem('link', event.target.id)
-            window.location.href = './screens/pokedex.html' 
         })
     });
 

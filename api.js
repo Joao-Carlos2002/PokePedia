@@ -7,16 +7,6 @@ const apiFetch = async () => {
 function apiresults(data) {
     const evento = new CustomEvent('resultApi', { detail: data });
     document.dispatchEvent(evento);
-    urlRedirect(data)
 }
-
-function urlRedirect(data) {
-    const genRedirect = new CustomEvent('genRedirect', { detail: data })
-    document.dispatchEvent(genRedirect)
-}
-
-document.addEventListener('urlRedirect', event => {
-    console.log(event)
-})
 
 apiFetch()
