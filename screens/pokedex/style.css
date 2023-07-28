@@ -140,6 +140,12 @@ header h1 {
   text-transform: capitalize;
 }
 
+.id-pokemons {
+  position: absolute;
+  right: 10%;
+  top: 28%;
+}
+
 .image-pokemons {
   top: 30%;
   width: 4rem;

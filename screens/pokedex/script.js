@@ -26,6 +26,10 @@ async function createHtml(section, { types, name, id }, spriteLink) {
     namePokemons.className = 'name-pokemons'
     namePokemons.innerText = name
 
+    const idPokemon = document.createElement('p');
+    idPokemon.className = 'id-pokemons'
+    idPokemon.innerText = `#${id}`
+
     const image = document.createElement('img');
     image.src = `${spriteLink}${id}.png`
     image.className = 'image-pokemons'
@@ -39,12 +43,14 @@ async function createHtml(section, { types, name, id }, spriteLink) {
     })
 
     boxPokemons.appendChild(namePokemons)
+    boxPokemons.appendChild(idPokemon)
     boxPokemons.appendChild(image)
     boxPokemons.appendChild(menuType)
     section.append(boxPokemons)
 
-    boxPokemons.addEventListener('click', (event) => {
+    boxPokemons.addEventListener('click', () => {
         window.location.href = '../details/details.html'
+        localStorage.setItem('pokemon', name)
     })
 
 }
