@@ -1,6 +1,9 @@
 const menuPokemons = document.getElementById('menu-pokemons');
 const link = localStorage.getItem('link');
 const spriteLink = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'
+
+document.title = `Pokedex - ${localStorage.getItem('geracao')}`
+
 fetch(link)
     .then(Response => Response.json())
     .then(data => {
@@ -15,7 +18,7 @@ async function fetchLink(pokemons) {
     })
 }
 
-async function createHtml(section, { types, name, id}, spriteLink) {
+async function createHtml(section, { types, name, id }, spriteLink) {
     const boxPokemons = document.createElement('div');
     boxPokemons.className = `box-pokemons ${types[0].type.name}`
 
