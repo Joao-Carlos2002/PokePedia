@@ -58,8 +58,8 @@ function createHtml({ types, name, id, stats, weight }) {
     pokemonDetails.appendChild(statusContainer)
 }
 
-
-
 fetch(`https://pokeapi.co/api/v2/pokemon/${localStorage.getItem('pokemon')}`)
     .then(response => response.json())
     .then(data => createHtml(data))
+
+document.title = `Detalhes - ${localStorage.getItem('pokemon')}`
