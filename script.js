@@ -45,6 +45,7 @@ document.addEventListener('resultApi', event => {
         element.addEventListener('click', (event) => {
             window.location.href = './screens/pokedex/pokedex.html'
             localStorage.setItem('link', event.target.id)
+            localStorage.setItem('geracao', event.target.innerText)
         })
     });
 
