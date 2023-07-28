@@ -10,15 +10,17 @@ fetch(link)
         fetchLink(data.pokemon_species)
     })
 
-async function fetchLink(pokemons) {
-    await pokemons.map((pokemon) => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-            .then(response => response.json())
-            .then(data => createHtml(menuPokemons, data, spriteLink))
-    })
+function fetchLink(pokemons) {
+    setTimeout(() => {
+        pokemons.map((pokemon) => {
+            fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+                .then(response => response.json())
+                .then(data => createHtml(menuPokemons, data, spriteLink))
+        })
+    }, 100);
 }
 
-async function createHtml(section, { types, name, id }, spriteLink) {
+function createHtml(section, { types, name, id }, spriteLink) {
     const boxPokemons = document.createElement('div');
     boxPokemons.className = `box-pokemons ${types[0].type.name}`
 
@@ -52,5 +54,4 @@ async function createHtml(section, { types, name, id }, spriteLink) {
         window.location.href = '../details/details.html'
         localStorage.setItem('pokemon', name)
     })
-
 }
