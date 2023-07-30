@@ -1,57 +1,41 @@
-const menuPokemons = document.getElementById('menu-pokemons');
-const link = localStorage.getItem('link');
 const spriteLink = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'
 
 document.title = `Pokedex - ${localStorage.getItem('geracao')}`
 
-fetch(link)
+fetch(localStorage.getItem('link'))
     .then(Response => Response.json())
     .then(data => {
         fetchLink(data.pokemon_species)
     })
 
 function fetchLink(pokemons) {
-    setTimeout(() => {
-        pokemons.map((pokemon) => {
-            fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-                .then(response => response.json())
-                .then(data => createHtml(menuPokemons, data, spriteLink))
-        })
-    }, 100);
+    let array = []
+    pokemons.map((pokemon) => {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+            .then(response => response.json())
+            .then(data => {
+                createHtml(array, data, spriteLink)
+                document.getElementById('menu-pokemons').innerHTML = array.join('')
+                addHref(document.getElementsByClassName('box-pokemons'))
+            })
+    })
 }
 
-function createHtml(section, { types, name, id }, spriteLink) {
-    const boxPokemons = document.createElement('div');
-    boxPokemons.className = `box-pokemons ${types[0].type.name}`
+function createHtml(array, { types, name, id }, spriteLink) {
+    array.push(`<button class="box-pokemons ${types[0].type.name}" value="${name}">
+        <h3 class="name-pokemons">${name}</h3>
+        <p class="id-pokemons">#${id}</p>
+        <img class="image-pokemons" src="${spriteLink}${id}.png" alt="${name}">
+        <div class="menu-type">${types.map((type) => `<p class="type-pokemons ${type.type.name}">${type.type.name}</p>`).join('')}</div>    
+    </button>`)
+}
 
-    const namePokemons = document.createElement('h3');
-    namePokemons.className = 'name-pokemons'
-    namePokemons.innerText = name
-
-    const idPokemon = document.createElement('p');
-    idPokemon.className = 'id-pokemons'
-    idPokemon.innerText = `#${id}`
-
-    const image = document.createElement('img');
-    image.src = `${spriteLink}${id}.png`
-    image.className = 'image-pokemons'
-    const menuType = document.createElement('div');
-    menuType.className = 'menu-type'
-    types.map((type) => {
-        const typePokemon = document.createElement('p')
-        typePokemon.innerText = type.type.name
-        typePokemon.className = `type-pokemons ${type.type.name}`
-        menuType.appendChild(typePokemon)
-    })
-
-    boxPokemons.appendChild(namePokemons)
-    boxPokemons.appendChild(idPokemon)
-    boxPokemons.appendChild(image)
-    boxPokemons.appendChild(menuType)
-    section.append(boxPokemons)
-
-    boxPokemons.addEventListener('click', () => {
-        window.location.href = '../details/details.html'
-        localStorage.setItem('pokemon', name)
+function addHref(items) {
+    const boxPokemons = Array.from(items)
+    boxPokemons.forEach(element => {
+        element.addEventListener('click', () => {
+            window.location.href = '../details/details.html'
+            localStorage.setItem('pokemon', element.value)
+        })
     })
 }

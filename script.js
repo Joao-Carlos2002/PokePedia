@@ -1,52 +1,58 @@
+
 document.addEventListener('resultApi', event => {
-    const result = event.detail;
-    result.map((gen) => {
-        const button = document.createElement('button');
-        button.className = 'html-redirect'
-
-        const paragraph = document.createElement('p');
-        paragraph.id = gen.url;
-        paragraph.className = 'titles'
-        paragraph.innerText = gen.name
-
-        const menu = document.getElementById('menu');
-
-        button.appendChild(paragraph);
-        menu.appendChild(button);
+    let arrayHtml = []
+    event.detail.map((gen) => {
+        createHtml(gen, arrayHtml)
+        document.getElementById('menu').innerHTML = arrayHtml.join('')
+        translateButtons(document.getElementsByClassName('titles'))
     })
-
-    const paragraph = document.getElementsByClassName('titles');
-    const paragraphArray = Array.from(paragraph)
+})
 
 
-    paragraphArray.forEach(element => {
-        if (element.innerText == 'generation-i') {
-            element.innerText = 'Primeira Geração'
-        } if (element.innerText == 'generation-ii') {
-            element.innerText = 'Segunda Geração'
-        } if (element.innerText == 'generation-iii') {
-            element.innerText = 'Terça Geração'
-        } if (element.innerText == 'generation-iv') {
-            element.innerText = 'Quarta Geração'
-        } if (element.innerText == 'generation-v') {
-            element.innerText = 'Quinta Geração'
-        } if (element.innerText == 'generation-vi') {
-            element.innerText = 'Sexta Geração'
-        } if (element.innerText == 'generation-vii') {
-            element.innerText = 'Sétima Geração'
-        } if (element.innerText == 'generation-viii') {
-            element.innerText = 'Oitava Geração'
-        } if (element.innerText == 'generation-ix') {
-            element.innerText = 'Nona Geração'
-        }
-    })
 
-    paragraphArray.forEach(element => {
+function createHtml(data, array) {
+    array.push(`<button class="html-redirect">
+        <p class="titles" id=${data.url}>${data.name}</p>
+    </button >`)
+}
+
+function translateButtons(button) {
+    const paragraph = Array.from(button)
+    paragraph.forEach(element => {
         element.addEventListener('click', (event) => {
             window.location.href = './screens/pokedex/pokedex.html'
             localStorage.setItem('link', event.target.id)
             localStorage.setItem('geracao', event.target.innerText)
         })
-    });
 
-})
+        switch (element.innerText) {
+            case ('generation-i'):
+                element.innerText = 'Kanto';
+                break;
+            case ('generation-ii'):
+                element.innerText = 'Johto'
+                break;
+            case ('generation-iii'):
+                element.innerText = 'Hoenn'
+                break;
+            case ('generation-iv'):
+                element.innerText = 'Sinnoh'
+                break;
+            case ('generation-v'):
+                element.innerText = 'Unova'
+                break;
+            case ('generation-vi'):
+                element.innerText = 'Kalos'
+                break;
+            case ('generation-vii'):
+                element.innerText = 'Alola'
+                break;
+            case ('generation-viii'):
+                element.innerText = 'Galar'
+                break;
+            case ('generation-ix'):
+                element.innerText = 'Paldea'
+                break;
+        }
+    })
+}
