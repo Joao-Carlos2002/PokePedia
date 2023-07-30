@@ -93,6 +93,11 @@ header {
   position: sticky;
 }
 
+header a {
+  text-decoration: none;
+  color: #000;
+}
+
 .home {
   text-decoration: none;
   position: absolute;
