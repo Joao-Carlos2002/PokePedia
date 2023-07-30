@@ -138,6 +138,7 @@ header h1 {
 .pokemon-name {
   position: absolute;
   top: 1vh;
+  text-transform: capitalize;
 }
 
 .pokemon-image {
