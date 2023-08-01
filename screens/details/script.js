@@ -36,3 +36,4 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${localStorage.getItem('pokemon')}`)
     .then(data => {
         document.body.innerHTML = createHtml(data)
     })
+    .catch(error => console.log(error))

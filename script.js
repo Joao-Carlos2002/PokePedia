@@ -11,16 +11,18 @@ document.addEventListener('resultApi', event => {
 
 
 function createHtml(data, array) {
-    array.push(`<button class="html-redirect">
-        <p class="titles" id=${data.url}>${data.name}</p>
-    </button >`)
+    array.push(
+        `<a href="./screens/pokedex/pokedex.html">
+            <button class="html-redirect">
+            <p class="titles" id=${data.url}>${data.name}</p>
+            </button >
+        </a>`)
 }
 
 function translateButtons(button) {
     const paragraph = Array.from(button)
     paragraph.forEach(element => {
         element.addEventListener('click', (event) => {
-            window.location.href = './screens/pokedex/pokedex.html'
             localStorage.setItem('link', event.target.id)
             localStorage.setItem('geracao', event.target.innerText)
         })
