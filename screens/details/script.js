@@ -1,5 +1,5 @@
 function createHtml({ types, name, id, stats, weight }) {
-    document.title = `Detalhes - ${localStorage.getItem('pokemon')}`
+    document.title = `Detalhes - ${sessionStorage.getItem('pokemon')}`
     return `<header>
                 <a href="../../index.html">
                 <h1>PokePedia</h1>
@@ -31,7 +31,7 @@ function createHtml({ types, name, id, stats, weight }) {
 }
 
 let array = []
-fetch(`https://pokeapi.co/api/v2/pokemon/${localStorage.getItem('pokemon')}`)
+fetch(`https://pokeapi.co/api/v2/pokemon/${sessionStorage.getItem('pokemon')}`)
     .then(response => response.json())
     .then(data => {
         document.body.innerHTML = createHtml(data)

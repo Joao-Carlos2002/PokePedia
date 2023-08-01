@@ -23,8 +23,8 @@ function translateButtons(button) {
     const paragraph = Array.from(button)
     paragraph.forEach(element => {
         element.addEventListener('click', (event) => {
-            localStorage.setItem('link', event.target.id)
-            localStorage.setItem('geracao', event.target.innerText)
+            sessionStorage.setItem('link', event.target.id)
+            sessionStorage.setItem('geracao', event.target.innerText)
         })
 
         switch (element.innerText) {

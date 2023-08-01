@@ -1,8 +1,8 @@
 const spriteLink = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'
 
-document.title = `Pokedex - ${localStorage.getItem('geracao')}`
+document.title = `Pokedex - ${sessionStorage.getItem('geracao')}`
 
-fetch(localStorage.getItem('link'))
+fetch(sessionStorage.getItem('link'))
     .then(Response => Response.json())
     .then(data => {
         fetchLink(data.pokemon_species)
@@ -38,7 +38,7 @@ function addHref(items) {
     const boxPokemons = Array.from(items)
     boxPokemons.forEach(element => {
         element.addEventListener('click', () => {
-            localStorage.setItem('pokemon', element.value)
+            sessionStorage.setItem('pokemon', element.value)
         })
     })
 }
