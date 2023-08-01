@@ -38,7 +38,6 @@ function addHref(items) {
     const boxPokemons = Array.from(items)
     boxPokemons.forEach(element => {
         element.addEventListener('click', () => {
-            window.location.href = '../details/details.html'
             localStorage.setItem('pokemon', element.value)
         })
     })
