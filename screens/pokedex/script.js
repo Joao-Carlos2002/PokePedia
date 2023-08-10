@@ -1,25 +1,38 @@
 const spriteLink = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'
 
-document.title = `Pokedex - ${sessionStorage.getItem('geracao')}`
+document.title = `Pokedex - ${localStorage.getItem('geracao')}`
 
-fetch(sessionStorage.getItem('link'))
-    .then(Response => Response.json())
-    .then(data => {
-        fetchLink(data.pokemon_species)
-    })
-    .catch(error => console.error(error))
+try {
+    fetch(`${localStorage.getItem('link')}${localStorage.getItem('region')}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json()
+        })
+        .then(data => {
+            fetchLink(data.pokemon_species)
+        })
+} catch (error) {
+    console.error(error)
+}
 
-function fetchLink(pokemons) {
+async function fetchLink(pokemons) {
     let array = []
     pokemons.map((pokemon) => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-            .then(response => response.json())
-            .then(data => {
-                createHtml(array, data, spriteLink)
-                document.getElementById('menu-pokemons').innerHTML = array.join('')
-                addHref(document.getElementsByClassName('box-pokemons'))
-            })
+        PokemonsMap(pokemon, array)
     })
+}
+
+async function PokemonsMap(pokemon, array) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    createHtml(array, data, spriteLink)
+    document.getElementById('menu-pokemons').innerHTML = array.join('')
+    addHref(document.getElementsByClassName('box-pokemons'))
 }
 
 function createHtml(array, { types, name, id }, spriteLink) {
@@ -38,7 +51,7 @@ function addHref(items) {
     const boxPokemons = Array.from(items)
     boxPokemons.forEach(element => {
         element.addEventListener('click', () => {
-            sessionStorage.setItem('pokemon', element.value)
+            localStorage.setItem('pokemon', element.value)
         })
     })
 }
