@@ -1,30 +1,11 @@
-
-document.addEventListener('resultApi', event => {
-    let arrayHtml = []
-    event.detail.map((gen) => {
-        createHtml(gen, arrayHtml)
-        document.getElementById('menu').innerHTML = arrayHtml.join('')
-        translateButtons(document.getElementsByClassName('titles'))
-    })
-})
-
-
-
-function createHtml(data, array) {
-    array.push(
-        `<a href="./screens/pokedex/pokedex.html">
-            <button class="html-redirect">
-            <p class="titles" id=${data.url}>${data.name}</p>
-            </button >
-        </a>`)
-}
+translateButtons(document.getElementsByClassName('titles'))
 
 function translateButtons(button) {
     const paragraph = Array.from(button)
     paragraph.forEach(element => {
-        element.addEventListener('click', (event) => {
-            sessionStorage.setItem('link', event.target.id)
-            sessionStorage.setItem('geracao', event.target.innerText)
+        element.addEventListener('click', (ev) => {
+            localStorage.setItem('region', ev.target.id)
+            localStorage.setItem('geracao', ev.target.innerText)
         })
 
         switch (element.innerText) {
@@ -58,3 +39,5 @@ function translateButtons(button) {
         }
     })
 }
+
+localStorage.setItem('link', 'https://pokeapi.co/api/v2/generation/')
