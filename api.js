@@ -1,7 +1,12 @@
 const apiFetch = async () => {
-    await fetch('https://pokeapi.co/api/v2/generation/')
-        .then(res => res.json())
-        .then(data => apiresults(data.results))
+    try {
+        await fetch('https://pokeapi.co/api/v2/generation/')
+            .then(res => res.json())
+            .then(data => apiresults(data.results))
+
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 function apiresults(data) {
